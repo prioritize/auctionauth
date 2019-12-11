@@ -203,6 +203,7 @@ func CheckCurrentToken() (bool, bool) {
 		fmt.Println(err)
 		return false, true
 	}
+	defer res.Body.Close()
 	// Read the data returned
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
